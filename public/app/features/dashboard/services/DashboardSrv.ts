@@ -5,6 +5,13 @@ import { DashboardModel } from '../state/DashboardModel';
 import { removePanel } from '../utils/panel';
 import { DashboardMeta } from 'app/types';
 
+interface DashboardSrvOptions {
+  folderId?: number;
+  makeEditable?: boolean;
+  redirect?: boolean;
+  overwrite?: boolean;
+}
+
 export class DashboardSrv {
   dashboard: DashboardModel;
 
@@ -35,7 +42,7 @@ export class DashboardSrv {
     removePanel(dashboard, dashboard.getPanelById(panelId), true);
   };
 
-  onPanelChangeView = options => {
+  onPanelChangeView = (options?: { fullscreen?: boolean; edit?: boolean; panelId?: number }) => {
     const urlParams = this.$location.search();
 
     // handle toggle logic
@@ -75,10 +82,7 @@ export class DashboardSrv {
     this.$location.search(urlParams);
   };
 
-  handleSaveDashboardError(clone, options, err) {
-    options = options || {};
-    options.overwrite = true;
-
+  handleSaveDashboardError(clone, options: DashboardSrvOptions = { overwrite: true }, err) {
     if (err.data && err.data.status === 'version-mismatch') {
       err.isHandled = true;
 
@@ -123,7 +127,7 @@ export class DashboardSrv {
           this.showSaveAsModal();
         },
         onConfirm: () => {
-          this.save(clone, { overwrite: true });
+          this.save(clone, { ...options, overwrite: true });
         },
       });
     }
@@ -148,17 +152,16 @@ export class DashboardSrv {
     return this.dashboard;
   }
 
-  save(clone, options, redirect = true) {
-    options = options || {};
+  save(clone, options: DashboardSrvOptions = { redirect: true }) {
     options.folderId = options.folderId >= 0 ? options.folderId : this.dashboard.meta.folderId || clone.folderId;
 
     return this.backendSrv
       .saveDashboard(clone, options)
-      .then(data => this.postSave(clone, data, redirect))
+      .then(data => this.postSave(clone, data, options.redirect))
       .catch(this.handleSaveDashboardError.bind(this, clone, options));
   }
 
-  saveDashboard(options?, clone?, redirect = true) {
+  saveDashboard(clone?: boolean, options: DashboardSrvOptions = { redirect: true }) {
     if (clone) {
       this.setCurrent(this.create(clone, this.dashboard.meta));
     }
@@ -176,10 +179,10 @@ export class DashboardSrv {
     }
 
     if (this.dashboard.version > 0) {
-      return this.showSaveModal(redirect);
+      return this.showSaveModal(options.redirect);
     }
 
-    return this.save(this.dashboard.getSaveModelClone(), options, redirect);
+    return this.save(this.dashboard.getSaveModelClone(), options);
   }
 
   saveJSONDashboard(json: string) {
