@@ -374,7 +374,9 @@ class GraphElement {
 
   callPlot(options, incrementRenderCounter) {
     try {
-      this.plot = $.plot(this.elem, this.sortedSeries, options);
+      console.log(options);
+      const xaxis = Object.assign(options.xaxis, { tickLength: 0 });
+      this.plot = $.plot(this.elem, this.sortedSeries, Object.assign(options, { xaxis }));
       if (this.ctrl.renderError) {
         delete this.ctrl.error;
         delete this.ctrl.inspector;
@@ -597,6 +599,7 @@ class GraphElement {
       min: this.parseNumber(this.panel.yaxes[0].min),
       max: this.parseNumber(this.panel.yaxes[0].max),
       tickDecimals: this.panel.yaxes[0].decimals,
+      tickColor: 'rgba(147, 168, 179, 0.09)',
     };
 
     options.yaxes.push(defaults);

@@ -225,8 +225,9 @@ export class Graph extends PureComponent<GraphProps, GraphState> {
       ...this.dynamicOptions,
       ...userOptions,
     };
-
-    $.plot($el, series, options);
+    console.log(options);
+    const xaxis = Object.assign(options.xaxis, { tickLength: 0 });
+    $.plot($el, series, Object.assign(options, { xaxis }));
   }
 
   render() {

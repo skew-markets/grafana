@@ -105,7 +105,9 @@ export class Graph extends PureComponent<GraphProps> {
     };
 
     try {
-      $.plot(this.element, series, flotOptions);
+      console.log(flotOptions);
+      const xaxis = Object.assign(flotOptions.xaxis, { tickLength: 0 });
+      $.plot(this.element, series, Object.assign(flotOptions, { xaxis }));
     } catch (err) {
       console.log('Graph rendering error', err, flotOptions, series);
       throw new Error('Error rendering panel');

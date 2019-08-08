@@ -5,7 +5,7 @@ const basicColors = {
   black: '#000000',
   white: '#ffffff',
   dark1: '#141414',
-  dark2: '#161719',
+  dark2: '#15161a',
   dark3: '#1f1f20',
   dark4: '#212124',
   dark5: '#222426',
@@ -17,7 +17,7 @@ const basicColors = {
   gray1: '#555555',
   gray2: '#8e8e8e',
   gray3: '#b3b3b3',
-  gray4: '#d8d9da',
+  gray4: '#5d6c76',
   gray5: '#ececec',
   gray6: '#f4f5f8', // not used in dark theme
   gray7: '#fbfbfb', // not used in dark theme

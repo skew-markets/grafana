@@ -74,7 +74,8 @@ export class BigValue extends PureComponent<Props> {
       };
 
       try {
-        $.plot(this.canvasElement, [plotSeries], options);
+        const xaxis = Object.assign(options.xaxis, { tickLength: 0 });
+        $.plot(this.canvasElement, [plotSeries], Object.assign(options, { xaxis }));
       } catch (err) {
         console.log('sparkline rendering error', err, options);
       }

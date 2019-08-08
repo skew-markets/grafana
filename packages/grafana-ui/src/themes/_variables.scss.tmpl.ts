@@ -17,6 +17,15 @@ $enable-hover-media-query: false !default;
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 
+div.flot-text {
+  font-size: 11px !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  line-height: 2.36 !important;
+  letter-spacing: 0.22px !important;
+}
+
 $space-inset-squish-md: ${theme.spacing.insetSquishMd} !default;
 
 $space-xxs: ${theme.spacing.xxs} !default;

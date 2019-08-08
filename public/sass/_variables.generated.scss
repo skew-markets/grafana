@@ -20,6 +20,15 @@ $enable-hover-media-query: false !default;
 // Control the default styling of most Bootstrap elements by modifying these
 // variables. Mostly focused on spacing.
 
+div.flot-text {
+  font-size: 11px !important;
+  font-weight: normal !important;
+  font-style: normal !important;
+  font-stretch: normal !important;
+  line-height: 2.36 !important;
+  letter-spacing: 0.22px !important;
+}
+
 $space-inset-squish-md: 4px 8px !default;
 
 $space-xxs: 2px !default;
@@ -99,7 +108,7 @@ $height-lg: 48px;
 // Typography
 // -------------------------
 
-$font-family-sans-serif: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+$font-family-sans-serif: 'Lato', sans-serif;
 $font-family-monospace: Menlo, Monaco, Consolas, 'Courier New', monospace;
 
 $font-size-root: 14px !default;

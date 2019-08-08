@@ -570,7 +570,9 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         color: getColorFromHexRgbOrName(panel.sparkline.lineColor, config.theme.type),
       };
 
-      $.plot(plotCanvas, [plotSeries], options);
+      console.log(options);
+      const xaxis = Object.assign(options.xaxis, { tickLength: 0 });
+      $.plot(plotCanvas, [plotSeries], Object.assign(options, { xaxis }));
     }
 
     function render() {
