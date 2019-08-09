@@ -376,7 +376,6 @@ class GraphElement {
 
   callPlot(options, incrementRenderCounter) {
     try {
-      console.log(options);
       const xaxis = Object.assign(options.xaxis, { tickLength: 0 });
       this.plot = $.plot(this.elem, this.sortedSeries, Object.assign(options, { xaxis }));
       if (this.ctrl.renderError) {

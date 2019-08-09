@@ -105,7 +105,6 @@ export class Graph extends PureComponent<GraphProps> {
     };
 
     try {
-      console.log(flotOptions);
       const xaxis = Object.assign(flotOptions.xaxis, { tickLength: 0 });
       $.plot(this.element, series, Object.assign(flotOptions, { xaxis }));
     } catch (err) {
