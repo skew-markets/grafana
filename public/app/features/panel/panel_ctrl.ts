@@ -52,6 +52,8 @@ export class PanelCtrl {
     }
 
     $scope.$on('component-did-mount', () => this.panelDidMount());
+
+    window.refresh = this.refresh.bind(this);  //Very very dirty 2
   }
 
   panelDidMount() {
