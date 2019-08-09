@@ -59,6 +59,8 @@ class GraphElement {
       return this.sortedSeries;
     });
 
+    window.render = this.onRender.bind(this); //Very very dirty
+
     // panel events
     this.ctrl.events.on('panel-teardown', this.onPanelTeardown.bind(this));
     this.ctrl.events.on('render', this.onRender.bind(this));
