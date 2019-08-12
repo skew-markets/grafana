@@ -7,7 +7,7 @@ const basicColors = {
   dark1: '#141414',
   dark2: '#15161a',
   dark3: '#1f1f20',
-  dark4: '#212124',
+  dark4: '#15161a',
   dark5: '#222426',
   dark6: '#262628',
   dark7: '#292a2d',
