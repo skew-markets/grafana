@@ -55,6 +55,8 @@ RUN apt-get update && apt-get upgrade -y && \
 
 COPY conf ./conf
 
+COPY plugins /var/lib/grafana/plugins
+
 RUN mkdir -p "$GF_PATHS_HOME/.aws" && \
     groupadd -r -g $GF_GID grafana && \
     useradd -r -u $GF_UID -g grafana grafana && \
