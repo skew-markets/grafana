@@ -3,7 +3,7 @@ import { GrafanaTheme, GrafanaThemeType } from '../types/theme';
 
 const basicColors = {
   black: '#000000',
-  white: '#e9e9e9',
+  white: '#ffffff',
   dark1: '#1e2028',
   dark2: '#e9e9e9',
   dark3: '#303133', // not used in light theme
