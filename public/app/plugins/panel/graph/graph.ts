@@ -600,7 +600,7 @@ class GraphElement {
       min: this.parseNumber(this.panel.yaxes[0].min),
       max: this.parseNumber(this.panel.yaxes[0].max),
       tickDecimals: this.panel.yaxes[0].decimals,
-      tickColor: 'rgba(93, 108, 118, 0.3)',
+      tickColor: 'rgba(93, 108, 118, 0.15)',
     };
 
     options.yaxes.push(defaults);

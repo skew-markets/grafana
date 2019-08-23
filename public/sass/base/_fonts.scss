@@ -2,10 +2,18 @@
 @import 'grafana_icons';
 
 @font-face {
-  font-family: 'Latp';
+  font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: local('Latp'), local('Lato-Regular'), url(../fonts/lato/Lato-Regular.woff2) format('woff2');
+  src: local('Lato'), local('Lato-Regular'), url(../fonts/lato/Lato-Regular.ttf) format('ttf');
+  unicode-range: U+0000-00ff, U+0131, U+0152-0153, U+02c6, U+02da, U+02dc, U+2000-206f, U+2074, U+20ac, U+2212, U+2215;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu'), local('Ubuntu-Regular'), url(../fonts/ubuntu/Ubuntu-Regular.ttf) format('ttf');
   unicode-range: U+0000-00ff, U+0131, U+0152-0153, U+02c6, U+02da, U+02dc, U+2000-206f, U+2074, U+20ac, U+2212, U+2215;
 }
 
