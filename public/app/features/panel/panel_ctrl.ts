@@ -62,8 +62,12 @@ export class PanelCtrl {
   }
 
   renderingCompleted() {
-    const event = new CustomEvent('loaded', { detail: window.frameElement.id });
-    window.parent.document.dispatchEvent(event);
+    try {
+      const event = new CustomEvent('loaded', { detail: window.frameElement.id });
+      window.parent.document.dispatchEvent(event);
+    } catch (err) {
+      console.log(err);
+    }
     profiler.renderingCompleted(this.panel.id);
   }
 
